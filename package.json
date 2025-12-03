@@ -1,0 +1,75 @@
+{
+  "name": "powercontrol",
+  "version": "1.0.0",
+  "description": "PowerControl — утилита управления питанием",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "kyka_zavr and cuvacioc",
+  "license": "ISC",
+  "type": "commonjs",
+
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+
+  "build": {
+    "appId": "com.kyka.powercontrol",
+    "productName": "PowerControl",
+
+    "files": [
+      "**/*",
+
+      "!bak/**",
+      "!node_modules/*",
+      "!node_modules/*/*",
+      "!installer.nsh",
+
+      "!package-lock.json",
+      "!package.json",
+
+      "!config.json"  
+    ],
+
+    "extraResources": [
+      {
+        "from": "theme",
+        "to": "theme"
+      },
+      {
+        "from": "custom_theme",
+        "to": "custom_theme"
+      },
+      {
+        "from": "power_actions.py",
+        "to": "."
+      }
+    ],
+
+    "directories": {
+      "buildResources": "ico"
+    },
+
+    "win": {
+      "target": "nsis",
+      "icon": "ico/ico.ico",
+      "forceCodeSigning": false,
+      "signAndEditExecutable": false
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "perMachine": true,
+      "shortcutName": "PowerControl",
+      "include": "installer.nsh"
+    }
+  }
+}

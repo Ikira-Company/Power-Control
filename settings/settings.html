@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>PowerControl Settings</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .theme-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .theme-item {
+            padding: 10px 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .theme-item:hover {
+            background: #3a3a3a;
+        }
+
+        .theme-item.active {
+            background: #0088ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Выбор темы</h2>
+
+    <div id="themeList" class="theme-list"></div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
